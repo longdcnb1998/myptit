@@ -6,4 +6,6 @@
     <string name="splash_notice_download_new_version">Tải dữ liệu mới</string>
     <string name="splash_notice_init_new_version">Khởi tạo dữ liệu mới</string>
     <string name="splash_notice_prepare">Khởi tạo dữ liêu khác ...</string>
+
+    <string name="quiz_title">Câu %s / %s</string>
 </resources>

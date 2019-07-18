@@ -9,6 +9,7 @@ public interface AppData {
         String FOLDER_LOGO = "logo";
         String FOLDER_DATA = "data";
         String SPLASH_ROCKET = "Splash.html";
+        String BACKGROUND_STAR = "Background.html";
         String DATA_DB = "qas.db";
     }
 

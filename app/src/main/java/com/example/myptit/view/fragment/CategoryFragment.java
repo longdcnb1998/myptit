@@ -59,7 +59,7 @@ public class CategoryFragment extends BaseFragment {
         WebSettings settings = binding.wvBackground.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setUseWideViewPort(true);
-        binding.wvBackground.loadUrl(Asset.ROOT + Structure.FOLDER_LOGO + "/" + Structure.SPLASH_ROCKET);
+        binding.wvBackground.loadUrl(Asset.ROOT + Structure.FOLDER_LOGO + "/" + Structure.BACKGROUND_STAR);
 
         CategoryAdapter adapter = new CategoryAdapter(context, new CategoryAdapter.Callback() {
         });

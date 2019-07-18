@@ -14,6 +14,7 @@ import com.example.myptit.R;
 import com.example.myptit.databinding.ItemCategoryFullBinding;
 import com.example.myptit.databinding.ItemCategorySubBinding;
 import com.example.myptit.model.enity.Category;
+import com.example.myptit.view.activity.QuizActivity;
 
 import java.util.List;
 
@@ -40,15 +41,15 @@ public class CategoryAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         Category item = data.get(position);
         ItemCategoryFullBinding binding = DataBindingUtil.inflate(inflater, R.layout.item_category_full, container, false);
+        Context context = binding.getRoot().getContext();
 
         binding.tvTitle.setText(item.title);
         binding.btAll.setOnClickListener(view -> {
-            // TODO
+            QuizActivity.start(context);
         });
 
         binding.sub.removeAllViews();
         if (item.sub != null && item.sub.size() > 0) {
-            int id = -1;
             for (int i = 0; i < item.sub.size(); i++) {
                 Category sub = item.sub.get(i);
                 if (sub == null) {
@@ -56,15 +57,10 @@ public class CategoryAdapter extends PagerAdapter {
                 }
                 ItemCategorySubBinding subBinding = DataBindingUtil.inflate(inflater, R.layout.item_category_sub, container, false);
                 subBinding.getRoot().setId(View.generateViewId());
-//                ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(0, 0);
-//                params.leftToLeft = binding.sub.getId();
-//                params.rightToRight = binding.sub.getId();
-//                params.topToTop = id == -1 ? binding.sub.getId() : id;
 
                 subBinding.tvTitle.setText(sub.title);
 
                 binding.sub.addView(subBinding.getRoot());
-                id = subBinding.getRoot().getId();
             }
         }
 
