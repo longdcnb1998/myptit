@@ -8,10 +8,12 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.myptit.R;
 import com.example.myptit.control.cache.CacheManager;
 import com.example.myptit.util.Logger;
+import com.example.myptit.view.fragment.CategoryFragment;
 import com.example.myptit.view.fragment.SplashFragment;
 
 public class MainActivity extends BaseActivity {
     private SplashFragment splashFragment;
+    private CategoryFragment categoryFragment;
     private FragmentManager fragmentManager;
 
     @Override
@@ -29,12 +31,13 @@ public class MainActivity extends BaseActivity {
     private void addSplashFragment() {
         if (splashFragment == null) {
             splashFragment = SplashFragment.newInstance(() -> {
+                addFragmentCat();
                 removeSplashFragment();
             });
         }
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
-        fragmentTransaction.add(R.id.fragment, splashFragment);
+        fragmentTransaction.add(R.id.overFragment, splashFragment);
         fragmentTransaction.commit();
     }
 
@@ -42,6 +45,16 @@ public class MainActivity extends BaseActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
         fragmentTransaction.remove(splashFragment);
+        fragmentTransaction.commit();
+    }
+
+    private void addFragmentCat() {
+        if (categoryFragment == null) {
+            categoryFragment = CategoryFragment.newInstance(new CategoryFragment.Callback() {
+            });
+        }
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.belowFragment, categoryFragment);
         fragmentTransaction.commit();
     }
 }

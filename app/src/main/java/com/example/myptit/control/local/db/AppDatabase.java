@@ -10,14 +10,16 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.myptit.control.cache.AppData;
 import com.example.myptit.control.cache.CacheManager;
+import com.example.myptit.model.enity.Category;
 import com.example.myptit.model.enity.QA;
 import com.example.myptit.util.Logger;
 
-@Database(entities = {QA.class}, version = 1, exportSchema = false)
+@Database(entities = {QA.class, Category.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static final String TAG = AppDatabase.class.getSimpleName();
 
-    public abstract QaDAO QaDAO();
+    public abstract QaDAO qaDAO();
+    public abstract CategoryDAO categoryDAO();
 
     private static volatile AppDatabase instance;
 

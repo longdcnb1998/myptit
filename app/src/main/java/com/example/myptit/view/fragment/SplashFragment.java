@@ -71,7 +71,7 @@ public class SplashFragment extends BaseFragment {
                 // start app, close fragment
                 binding.pbLoading.setProgress(data);
                 if (callback != null) {
-                    handler.postDelayed(() -> callback.complete(), 1000);
+                    handler.postDelayed(() -> callback.complete(), 1500);
                 }
             } else {
                 binding.pbLoading.setProgress(data);
